@@ -1,1 +1,26 @@
 /* pages/classic/classic.wxss */
+.container{
+    display: flex;
+    flex-direction: row  ;
+    justify-content: center;
+    align-items: center;
+    height:500px
+}
+.chunk1{
+   
+    width: 100px;
+    height: 100px;
+    background: red
+}
+.chunk2{
+ 
+    width: 100px;
+    height: 100px;
+    background: yellow
+}
+.chunk3{
+   
+    width: 100px;
+    height: 100px;
+    background: green
+}
