@@ -1,6 +1,5 @@
 <!-- pages/classic/classic.wxml -->
 <view class="container">
-    <view class='chunk1'>1</view>
-    <view class='chunk2'>2</view>
-    <view class='chunk3'>3</view>
+    
+    <like-cmp />
 </view>
