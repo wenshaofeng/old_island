@@ -1,5 +1,8 @@
-<!-- pages/classic/classic.wxml -->
-<view class="container">
-    
-    <like-cmp />
-</view>
+<div class="container">
+    <view class="header">
+        <epsoide-cmp class='epsoide' index="{{classicData.index}}" />
+        <like-cmp class="like" bind:likes="onLike" like="{{classicData.like_status}}" count="{{classicData.fav_nums}}" />
+    </view>
+    <movie-cmp img="{{classicData.image}}" content="{{classicData.content}}" />
+    <navi-cmp class="nav" title="{{classicData.title}}" first="{{first}}" latest="{{latest}}" bind:left="onNext" bind:right="onPrev" />
+</div>

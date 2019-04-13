@@ -21,16 +21,17 @@ class HTTP {
             dataType: 'json',
             responseType: 'text',
             success: (result) => {
-                let code = res.statusCode.toString()
+                let code = result.statusCode.toString()
                 if (code.startsWith('2')) {
-                    params.success && params.success(res.data)
-                } else {
-                    let error_code = res.data.error_code
+                    params.success && params.success(result.data)
+                } else {  // 服务器异常
+                    let error_code = result.data.error_code
                     this._show_error(error_code)
                 }
             },
-            fail: () => { },
-            complete: () => { }
+            fail: () => { // API调用失败
+                this._show_error(1)
+            }
         });
     }
 
@@ -46,6 +47,4 @@ class HTTP {
     }
 }
 
-export {
-    HTTP
-}
+export { HTTP } 

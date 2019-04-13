@@ -35,9 +35,9 @@ Component({
           count: count,
           like: !like
         })
-  
+        //自定义事件  激活自定义事件，给引用其的父组件调用
         let behavior = this.properties.like ? "like" : "cancel"
-        this.triggerEvent('like', {
+        this.triggerEvent('likes', {
           behavior: behavior
         }, {})
       }
