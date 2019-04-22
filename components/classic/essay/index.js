@@ -7,6 +7,7 @@ Component({
    */
   behaviors: [classicBeh],
   properties: {
+    content: String
     // img: String,
     // title: String
   },

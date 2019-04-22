@@ -29,7 +29,9 @@ Page({
     classicModel.getLatest(res => {
       console.log(res);
       this.setData({
-        classicData: res
+        classicData: res,
+        likeCount: res.fav_nums,
+        likeStatus: res.like_status
       })
     })
   },
@@ -54,13 +56,23 @@ Page({
   _updateClassic(type) { // 切换ClassicPage 的内容
     let index = this.data.classicData.index
     classicModel.getClassic(index, type, res => {
+      this._getLikeStatus(res.id, res.type)
       this.setData({
         classicData: res,
         first: classicModel.isFirst(res.index),
         latest: classicModel.ifLatest(res.index)
       })
     })
+  },
 
+  _getLikeStatus(artId, category) {
+    likeModel.getClassicLikeStatus(artId, category, res => {
+      console.log(res);
+      this.setData({
+        likeCount: res.fav_nums,
+        likeStatus: res.like_status
+      })
+    })
   },
 
   /**

@@ -1,8 +1,11 @@
 <div class="container">
     <view class="header">
-        <epsoide-cmp class='epsoide' index="{{classicData.index}}" />
-        <like-cmp class="like" bind:likes="onLike" like="{{classicData.like_status}}" count="{{classicData.fav_nums}}" />
+        <v-epsoide class='epsoide' index="{{classicData.index}}" />
+        <v-like class="like" bind:likes="onLike" like="{{likeStatus}}" count="{{likeCount}}" />
     </view>
-    <movie-cmp img="{{classicData.image}}" content="{{classicData.content}}" />
-    <navi-cmp class="nav" title="{{classicData.title}}" first="{{first}}" latest="{{latest}}" bind:left="onNext" bind:right="onPrev" />
+    <!-- <v-music hidden="{{classic.type !== 200}}" src="{{classic.url}}" img="{{classic.image}}" content="{{classic.content}}"></v-music> -->
+    <v-music wx:if="{{classicData.type == 200}}" src="{{classicData.url}}" img="{{classicData.image}}" content="{{classicData.content}}" title="{{classicData.title}}" />
+    <v-essay hidden="{{classicData.type !== 300}}" img="{{classicData.image}}" content="{{classicData.content}}" />
+    <v-movie hidden="{{classicData.type !== 100}}" img="{{classicData.image}}" content="{{classicData.content}}" />
+    <v-navi class="nav" title="{{classicData.title}}" first="{{first}}" latest="{{latest}}" bind:left="onNext" bind:right="onPrev" />
 </div>
